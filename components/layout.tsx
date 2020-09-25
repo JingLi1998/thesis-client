@@ -1,12 +1,17 @@
-import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
-const name = '[Your Name]'
-export const siteTitle = 'Next.js Sample Website'
+const name = "Group 9 MMAN4020";
+export const siteTitle = "Track and Trace Network";
 
-export default function Layout({ children, home }) {
+type Props = {
+  children: React.ReactNode;
+  home?: boolean;
+};
+
+export default function Layout({ children, home }: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -62,5 +67,5 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }
