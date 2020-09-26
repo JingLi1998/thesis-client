@@ -1,58 +1,140 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
-import Link from "next/link";
-import Date from "../components/date";
+// import Head from "next/head";
+// import Link from "next/link";
+import styled from "styled-components";
 
-type Post = {
-  date: string;
-  title: string;
-  id: string;
-};
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 55% 45%;
+`;
 
-type Props = {
-  allPostsData: Post[];
-};
+const Column = styled.div`
+  padding: 0 2.25rem;
 
-export default function Home({ allPostsData }: Props) {
+  &:first-child {
+    border-right: 1px solid var(--border);
+  }
+`;
+
+const Heading = styled.h1`
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.5rem;
+`;
+
+const SubHeading = styled.h2`
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+`;
+
+const SubSubHeading = styled.h3`
+  color: var(--primary);
+  font-weight: 600;
+  height: 4rem;
+  margin: 0;
+  text-align: middle;
+  font-size: 1.25rem;
+  line-height: 4rem;
+`;
+
+const List = styled.ul`
+  list-style-type: square;
+  list-style: inside;
+
+  span {
+    color: var(--primary);
+    font-weight: 600;
+  }
+`;
+
+const Image = styled.img`
+  width: 10rem;
+  height: 10rem;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 100%;
+`;
+
+const Background = styled.div`
+  width: 24rem;
+  height: 24rem;
+  background-color: var(--primary);
+`;
+
+const Index = () => {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
+    <Layout>
+      <Column>
+        <SubSubHeading>Home Page</SubSubHeading>
+        <Heading>G9 Track and Trace Solutions</Heading>
+        <section>
+          <SubHeading>Our Mission</SubHeading>
+          <p>To transform Australia into an advanced manufacturing nation.</p>
+        </section>
+        <section>
+          <SubHeading>Our Method</SubHeading>
+          <p>
+            By increasing the reliability and resilience of our supply chain,
+            ensuring products are tracked and traced from manufacture to
+            distribution.
+          </p>
+          <p>
+            Through use of AI and software, we hope to position Australia at the
+            forefront of the next industrial revolution.
+          </p>
+        </section>
+        <section>
+          <SubHeading>Our Team</SubHeading>
+          <p>
+            Our organisation is composed of the following talented indivduals,
+            in charge of the respective portfolios:
+          </p>
+          <List>
+            <li>
+              <span>Anthony</span> - Security Portfolio
             </li>
-          ))}
-        </ul>
-      </section>
+            <li>
+              <span>Eleanor</span> - Market Portfolio
+            </li>
+            <li>
+              <span>Eugene</span> - User Experience Portfolio
+            </li>
+            <li>
+              <span>Jing</span> - Data Aggregation Portfolio
+            </li>
+            <li>
+              <span>John</span> - Industry Research Portfolio
+            </li>
+            <li>
+              <span>Kai</span> - Customer Relation Portfolio
+            </li>
+            <li>
+              <span>Lakshan</span> - Data Sensing Portfolio
+            </li>
+          </List>
+        </section>
+        <section>
+          <SubHeading>Our Hero</SubHeading>
+          <Image src="/images/lyons.jpg" />
+        </section>
+      </Column>
+      <Column>
+        <SubSubHeading>Some Content</SubSubHeading>
+        <br />
+        <br />
+        <section>
+          <SubHeading>More Content</SubHeading>
+          <p>Some text</p>
+        </section>
+        <section>
+          <SubHeading>Some Diagram/Graph</SubHeading>
+          <p>Some text</p>
+          <Background />
+        </section>
+      </Column>
     </Layout>
   );
-}
+};
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
+export default Index;
