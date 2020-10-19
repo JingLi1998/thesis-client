@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { QueryCache, ReactQueryCacheProvider } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components";
+import App from "./App";
+import Sidebar from "./components/Sidebar";
+import JsonProvider from "./contexts/jsonContext";
+import GlobalLayout from "./layouts/GlobalLayout";
+import { GlobalStyle, theme } from "./styles";
+
+const queryCache = new QueryCache();
+
+const Main = styled.main`
+  grid-area: main;
+  /* overflow: auto; */
+`;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <BrowserRouter>
+        <JsonProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <GlobalLayout>
+              <Sidebar />
+              <Main>
+                <App />
+              </Main>
+            </GlobalLayout>
+          </ThemeProvider>
+        </JsonProvider>
+      </BrowserRouter>
+    </ReactQueryCacheProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

@@ -12,7 +12,13 @@
     "@types/react-dom": "^16.9.8",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-hook-form": "^6.9.4",
+    "react-json-tree": "^0.13.0",
+    "react-json-view": "^1.19.1",
+    "react-query": "^2.23.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "styled-components": "^5.2.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -35,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-json-tree": "^0.6.11",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/styled-components": "^5.1.4"
   }
 }
