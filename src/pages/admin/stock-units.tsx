@@ -20,7 +20,6 @@ type Data = {
 };
 
 const StockUnits = () => {
-  console.log(QUERY_URL);
   const [id, setId] = useState<string | null>(null);
 
   const { setSrc } = useJsonContext();
