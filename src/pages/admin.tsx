@@ -3,12 +3,12 @@ import { NavLink, Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import ReactJson from "react-json-view";
 import { useJsonContext } from "../contexts/jsonContext";
-import StockUnits from "./admin/stock-units";
 import Batches from "./admin/batches";
 import AssetUnits from "./admin/asset-units";
 import Logistics from "./admin/logistics";
 import Transports from "./admin/transport-units";
 import TransportUnits from "./admin/transports";
+import StockUnits from "./admin/stock-units";
 
 const Layout = styled.div`
   display: grid;
@@ -76,6 +76,7 @@ const Admin = () => {
       </Navigation>
       <StyledSwitch>
         <Route path={`${match.url}/stock-units`}>
+          {/* <QueryForm identifier="gtin_serial_number" unitType="stock-unit" /> */}
           <StockUnits />
         </Route>
         <Route path={`${match.url}/batches`}>
@@ -99,7 +100,7 @@ const Admin = () => {
       </StyledSwitch>
       <ReactJsonWrapper>
         <h3>JSON Result View</h3>
-        <StyledReactJson src={src} />
+        <StyledReactJson src={src} collapsed={2} />
       </ReactJsonWrapper>
     </Layout>
   );

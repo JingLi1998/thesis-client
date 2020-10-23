@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Index from "./pages";
 import Admin from "./pages/admin";
 import Distributors from "./pages/distributors";
+import Login from "./pages/login";
 import Manufacturers from "./pages/manufacturers";
 import Map from "./pages/map";
 
@@ -20,6 +21,9 @@ function App() {
       </Route>
       <Route path="/map">
         <Map />
+      </Route>
+      <Route path="/login">
+        <Login />
       </Route>
       <Route path="/">
         <Index />
