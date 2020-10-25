@@ -46,5 +46,6 @@
     "@types/react-json-tree": "^0.6.11",
     "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4"
-  }
+  },
+  "proxy": "http://localhost:8002"
 }

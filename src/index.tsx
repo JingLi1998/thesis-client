@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import App from "./App";
 import Sidebar from "./components/Sidebar";
+import AuthProvider from "./contexts/authContext";
 import JsonProvider from "./contexts/jsonContext";
 import GlobalLayout from "./layouts/GlobalLayout";
 import { GlobalStyle, theme } from "./styles";
@@ -20,17 +21,19 @@ ReactDOM.render(
   <React.StrictMode>
     <ReactQueryCacheProvider queryCache={queryCache}>
       <BrowserRouter>
-        <JsonProvider>
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <GlobalLayout>
-              <Sidebar />
-              <Main>
-                <App />
-              </Main>
-            </GlobalLayout>
-          </ThemeProvider>
-        </JsonProvider>
+        <AuthProvider>
+          <JsonProvider>
+            <ThemeProvider theme={theme}>
+              <GlobalStyle />
+              <GlobalLayout>
+                <Sidebar />
+                <Main>
+                  <App />
+                </Main>
+              </GlobalLayout>
+            </ThemeProvider>
+          </JsonProvider>
+        </AuthProvider>
       </BrowserRouter>
     </ReactQueryCacheProvider>
   </React.StrictMode>,

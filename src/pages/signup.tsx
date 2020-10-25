@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -7,7 +7,6 @@ import { useAuthContext } from "../contexts/authContext";
 
 const Layout = styled.section`
   padding: 1.5rem;
-  padding-top: 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,39 +55,37 @@ const Button = styled.button`
   }
 `;
 
-const Error = styled.span`
-  margin: 0.5rem;
-  color: red;
-`;
-
 type FormInput = {
   email: string;
   password: string;
+  confirmPassword: string;
 };
 
-const Login = () => {
+const Signup = () => {
   const { user, setUser } = useAuthContext();
   const { handleSubmit, register } = useForm<FormInput>();
-  const [error, setError] = useState(null);
 
   const history = useHistory();
 
   const onSubmit = async (data: FormInput) => {
-    const res = await fetch(`${AUTH_URL}/login`, {
+    if (data.password !== data.confirmPassword) {
+      return alert("Passwords do not match");
+    }
+    const response = await fetch(`${AUTH_URL}/signup`, {
       method: "post",
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     });
-    if (res.ok) {
-      const data = await res.json();
-      setUser(data);
+    if (response.ok) {
+      const user = response.json();
+      setUser(user);
       history.replace("/admin");
-    } else {
-      const data = await res.json();
-      setError(data.message);
     }
   };
 
@@ -98,17 +95,18 @@ const Login = () => {
 
   return (
     <Layout>
-      <Heading>Login Page</Heading>
+      <Heading>Signup Page</Heading>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Label>Email</Label>
         <Input type="email" name="email" ref={register} />
         <Label>Password</Label>
         <Input type="password" name="password" ref={register} />
-        <Button>Login</Button>
+        <Label>Confirm Password</Label>
+        <Input type="password" name="confirmPassword" ref={register} />
+        <Button>Signup</Button>
       </Form>
-      {error && <Error>{error}</Error>}
     </Layout>
   );
 };
 
-export default Login;
+export default Signup;

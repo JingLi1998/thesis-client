@@ -1,6 +1,8 @@
-import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { AUTH_URL } from "../constants";
+import { useAuthContext } from "../contexts/authContext";
 
 const Wrapper = styled.aside`
   grid-area: sidebar;
@@ -30,11 +32,43 @@ const LinkWrapper = styled.div`
 
 const NavLink = styled(Link)`
   display: block;
+  padding: 0;
 `;
 
 const Logo = styled.span``;
 
 const Sidebar = () => {
+  const { user, setUser, isLoading } = useAuthContext();
+
+  const logout = async () => {
+    await fetch(`${AUTH_URL}/api/logout`);
+    setUser(null);
+  };
+
+  let navLinks = null;
+  if (!isLoading) {
+    if (user) {
+      navLinks = (
+        <>
+          <NavLink to="/admin">Admin</NavLink>
+          <NavLink to="/manufacturers">Manufacturers</NavLink>
+          <NavLink to="/distributors">Distributors</NavLink>
+          <NavLink to="/map">Map</NavLink>
+          <NavLink as="button" onClick={logout}>
+            Logout
+          </NavLink>
+        </>
+      );
+    } else {
+      navLinks = (
+        <>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+        </>
+      );
+    }
+  }
+
   return (
     <Wrapper>
       <LogoWrapper>
@@ -42,10 +76,7 @@ const Sidebar = () => {
       </LogoWrapper>
       <LinkWrapper>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/admin">Admin</NavLink>
-        <NavLink to="/manufacturers">Manufacturers</NavLink>
-        <NavLink to="/distributors">Distributors</NavLink>
-        <NavLink to="/map">Map</NavLink>
+        {navLinks}
       </LinkWrapper>
     </Wrapper>
   );

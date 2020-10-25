@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --hue: 236;
     --primary: hsl(var(--hue), 39%, 28%);
+    --primary-light: hsl(var(--hue), 39%, 33%);
     --primary-dark: hsl(var(--hue), 39%, 25%);
     --text: hsl(0, 0%, 0%);
     --border: hsl(0, 0%, 86%);

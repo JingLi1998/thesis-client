@@ -100,7 +100,7 @@ const Admin = () => {
       </StyledSwitch>
       <ReactJsonWrapper>
         <h3>JSON Result View</h3>
-        <StyledReactJson src={src} collapsed={2} />
+        <StyledReactJson src={src} />
       </ReactJsonWrapper>
     </Layout>
   );

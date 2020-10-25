@@ -1,7 +1,12 @@
 import React from "react";
+import BasicLayout from "../layouts/BasicLayout";
 
 const Distributors = () => {
-  return <h1>Distributors Dashboard</h1>;
+  return (
+    <BasicLayout>
+      <h1>Distributors Dashboard</h1>
+    </BasicLayout>
+  );
 };
 
 export default Distributors;
