@@ -29,7 +29,10 @@ const StockUnits = () => {
   const { isLoading, data } = useQuery<Data>(
     ["stockUnitId", id],
     () =>
-      fetch(`${QUERY_URL}/stock-unit/${id}`).then((res) => {
+      fetch(`${QUERY_URL}/stock-unit/${id}`, {
+        method: "get",
+        credentials: "same-origin",
+      }).then((res) => {
         return res.json();
       }),
     { enabled: id }
