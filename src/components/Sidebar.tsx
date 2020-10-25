@@ -41,7 +41,7 @@ const Sidebar = () => {
   const { user, setUser, isLoading } = useAuthContext();
 
   const logout = async () => {
-    await fetch(`${AUTH_URL}/api/logout`);
+    await fetch(`${AUTH_URL}/logout`);
     setUser(null);
   };
 
