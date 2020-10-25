@@ -29,7 +29,9 @@ const TransportUnits = () => {
   const { isLoading, data } = useQuery<Data>(
     ["transportUnitId", id],
     () =>
-      fetch(`${QUERY_URL}/transport-unit/${id}`).then((res) => {
+      fetch(`${QUERY_URL}/transport-unit/${id}`, {
+        credentials: "include",
+      }).then((res) => {
         return res.json();
       }),
     { enabled: id }

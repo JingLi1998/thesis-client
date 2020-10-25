@@ -77,6 +77,7 @@ const Login = () => {
     const res = await fetch(`${AUTH_URL}/login`, {
       method: "post",
       body: JSON.stringify(data),
+      credentials: "same-origin",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

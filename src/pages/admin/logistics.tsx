@@ -29,9 +29,11 @@ const Logistics = () => {
   const { isLoading, data } = useQuery<Data>(
     ["logisticId", id],
     () =>
-      fetch(`${QUERY_URL}/logistic/${id}`).then((res) => {
-        return res.json();
-      }),
+      fetch(`${QUERY_URL}/logistic/${id}`, { credentials: "include" }).then(
+        (res) => {
+          return res.json();
+        }
+      ),
     { enabled: id }
   );
 

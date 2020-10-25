@@ -29,9 +29,11 @@ const Batches = () => {
   const { isLoading, data } = useQuery<Data>(
     ["batchId", id],
     () =>
-      fetch(`${QUERY_URL}/batch/${id}`).then((res) => {
-        return res.json();
-      }),
+      fetch(`${QUERY_URL}/batch/${id}`, { credentials: "include" }).then(
+        (res) => {
+          return res.json();
+        }
+      ),
     { enabled: id }
   );
 

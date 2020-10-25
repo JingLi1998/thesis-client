@@ -29,7 +29,9 @@ const AssetUnits = () => {
   const { isLoading, data } = useQuery<Data>(
     ["assetUnitId", id],
     () =>
-      fetch(`${QUERY_URL}/asset-unit/${id}`).then((res) => {
+      fetch(`${QUERY_URL}/asset-unit/${id}`, {
+        credentials: "same-origin",
+      }).then((res) => {
         return res.json();
       }),
     { enabled: id }

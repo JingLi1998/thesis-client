@@ -32,7 +32,9 @@ const AuthProvider = ({ children }: Props) => {
 
   const getUser = useCallback(async () => {
     setIsLoading(true);
-    const res = await fetch(`${AUTH_URL}/current-user`);
+    const res = await fetch(`${AUTH_URL}/current-user`, {
+      credentials: "same-origin",
+    });
     if (res.ok) {
       const user = await res.json();
       console.log(user);

@@ -29,9 +29,11 @@ const Transactions = () => {
   const { isLoading, data } = useQuery<Data>(
     ["stockUnitId", id],
     () =>
-      fetch(`${QUERY_URL}/stock-unit/${id}`).then((res) => {
-        return res.json();
-      }),
+      fetch(`${QUERY_URL}/stock-unit/${id}`, { credentials: "include" }).then(
+        (res) => {
+          return res.json();
+        }
+      ),
     { enabled: id }
   );
 

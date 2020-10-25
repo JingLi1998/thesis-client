@@ -77,6 +77,7 @@ const Signup = () => {
         email: data.email,
         password: data.password,
       }),
+      credentials: "same-origin",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
