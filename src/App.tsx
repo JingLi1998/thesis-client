@@ -23,10 +23,10 @@ const App = () => {
 
   return (
     <Switch>
-      <ProtectedRoute path="/query">
+      <ProtectedRoute path="/admin-query">
         <Query />
       </ProtectedRoute>
-      <ProtectedRoute path="/publish">
+      <ProtectedRoute path="/admin-publish">
         <Publish />
       </ProtectedRoute>
       <ProtectedRoute path="/manufacturers">

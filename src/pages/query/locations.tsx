@@ -51,7 +51,7 @@ const Locations = () => {
   const { isLoading, data } = useQuery<Data>(
     ["locationId", id],
     () =>
-      fetch(`${QUERY_URL}/logistic/${id}`, { credentials: "include" }).then(
+      fetch(`${QUERY_URL}/location/${id}`, { credentials: "include" }).then(
         (res) => {
           return res.json();
         }
