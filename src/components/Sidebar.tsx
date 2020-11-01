@@ -50,8 +50,8 @@ const Sidebar = () => {
     if (user) {
       navLinks = (
         <>
-          <NavLink to="/query">Query</NavLink>
-          <NavLink to="/publish">Publish</NavLink>
+          <NavLink to="/admin-query">Query</NavLink>
+          <NavLink to="/admin-publish">Publish</NavLink>
           <NavLink to="/manufacturers">Manufacturers</NavLink>
           <NavLink to="/distributors">Distributors</NavLink>
           <NavLink to="/map">Map</NavLink>
