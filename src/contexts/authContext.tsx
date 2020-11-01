@@ -37,7 +37,6 @@ const AuthProvider = ({ children }: Props) => {
     });
     if (res.ok) {
       const user = await res.json();
-      console.log(user);
       setUser(user);
     } else {
       setUser(null);

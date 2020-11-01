@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
+import styled from "styled-components";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import Label from "../../components/Label";
+import SmallSpinner from "../../components/SmallSpinner";
 import { QUERY_URL } from "../../constants";
 import { useJsonContext } from "../../contexts/jsonContext";
 
@@ -18,6 +23,23 @@ type Data = {
   message?: string;
   status?: string;
 };
+
+const Heading = styled.h3`
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary);
+`;
+
+const FormHeading = styled.h4`
+  margin: 0.5rem 0;
+  font-weight: 500;
+`;
+
+const Span = styled.span`
+  display: block;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+`;
 
 const Logistics = () => {
   const [id, setId] = useState<string | null>(null);
@@ -41,30 +63,21 @@ const Logistics = () => {
     setId(data.id);
   };
 
-  let result = <span>No data</span>;
-  if (isLoading) {
-    result = <span>Loading...</span>;
-  } else if (data?.logistic) {
+  useEffect(() => {
     setSrc(data);
-    result = (
-      <>
-        <p>Stock Unit ID - {data.logistic.sscc}</p>
-        <p>Is Aggregated? - {data.logistic.isAggregated ? "Yes" : "No"}</p>
-      </>
-    );
-  } else if (data?.message) {
-    result = <span>{data.message}</span>;
-  }
+  }, [data, setSrc]);
 
   return (
     <section>
-      <h3>Logistics Query Interface</h3>
+      <Heading>Logistics Query Interface</Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" name="id" ref={register} />
-        <button>Submit</button>
+        <FormHeading>Logistic Details</FormHeading>
+        <Span>Query logistics based on SSCC</Span>
+        <Label>Logistic SSCC</Label>
+        <Input type="text" name="id" placeholder="1" ref={register} />
+        <Button>Submit</Button>
       </form>
-      <h4>Result</h4>
-      {result}
+      {isLoading && <SmallSpinner />}
     </section>
   );
 };

@@ -4,11 +4,12 @@ import PageSpinner from "./components/PageSpinner";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuthContext } from "./contexts/authContext";
 import Index from "./pages";
-import Admin from "./pages/admin";
 import Distributors from "./pages/distributors";
 import Login from "./pages/login";
 import Manufacturers from "./pages/manufacturers";
 import Map from "./pages/map";
+import Publish from "./pages/publish";
+import Query from "./pages/query";
 import Signup from "./pages/signup";
 
 const App = () => {
@@ -22,8 +23,11 @@ const App = () => {
 
   return (
     <Switch>
-      <ProtectedRoute path="/admin">
-        <Admin />
+      <ProtectedRoute path="/query">
+        <Query />
+      </ProtectedRoute>
+      <ProtectedRoute path="/publish">
+        <Publish />
       </ProtectedRoute>
       <ProtectedRoute path="/manufacturers">
         <Manufacturers />
