@@ -19,7 +19,7 @@ const Layout = styled.div`
   display: grid;
   padding: 1.5rem;
   height: 100%;
-  grid-template-rows: minmax(10rem, auto);
+  grid-template-rows: auto auto 1fr;
   grid-template-columns: auto;
   grid-template-areas:
     "nav"
