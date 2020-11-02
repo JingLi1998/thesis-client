@@ -4,6 +4,7 @@ import { QueryCache, ReactQueryCacheProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import App from "./App";
+import NoMobile from "./components/NoMobile";
 import Sidebar from "./components/Sidebar";
 import AuthProvider from "./contexts/authContext";
 import JsonProvider from "./contexts/jsonContext";
@@ -25,6 +26,7 @@ ReactDOM.render(
           <JsonProvider>
             <ThemeProvider theme={theme}>
               <GlobalStyle />
+              <NoMobile />
               <GlobalLayout>
                 <Sidebar />
                 <Main>

@@ -50,11 +50,11 @@ const Sidebar = () => {
     if (user) {
       navLinks = (
         <>
-          <NavLink to="/admin-query">Query</NavLink>
-          <NavLink to="/admin-publish">Publish</NavLink>
-          <NavLink to="/manufacturers">Manufacturers</NavLink>
-          <NavLink to="/distributors">Distributors</NavLink>
-          <NavLink to="/map">Map</NavLink>
+          <NavLink to="/admin-query">Query Interface</NavLink>
+          <NavLink to="/admin-publish">Publish Interface</NavLink>
+          {/* <NavLink to="/manufacturers">Manufacturers</NavLink> */}
+          {/* <NavLink to="/distributors">Distributors</NavLink> */}
+          {/* <NavLink to="/map">Map</NavLink> */}
           <NavLink as="button" onClick={logout}>
             Logout
           </NavLink>

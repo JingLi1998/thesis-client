@@ -10,6 +10,7 @@ const Layout = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 4.5rem;
 `;
 
 const Heading = styled.h1`

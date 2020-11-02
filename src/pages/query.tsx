@@ -10,16 +10,26 @@ import TransportUnits from "./query/transport-units";
 import Transports from "./query/transports";
 import StockUnits from "./query/stock-units";
 import Locations from "./query/locations";
+import { breakpoints } from "../styles";
 
 const Layout = styled.div`
   display: grid;
-  grid-template-areas:
-    "nav json"
-    "subpage json";
   padding: 1.5rem;
   height: 100%;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: minmax(56rem, 1fr) auto;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "nav"
+    "subpage"
+    "json";
+
+  ${breakpoints.xl} {
+    grid-template-areas:
+      "nav json"
+      "subpage json";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(56rem, 1fr) auto;
+  }
 `;
 
 const Heading = styled.h1`
@@ -44,6 +54,15 @@ const Link = styled(NavLink)`
   &.active {
     text-decoration: underline;
   }
+`;
+
+const LinkHeading = styled.h2`
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.75rem;
+  color: var(--primary);
 `;
 
 const ReactJsonWrapper = styled.section`
@@ -76,6 +95,7 @@ const Query = () => {
     <Layout>
       <Navigation>
         <Heading>Admin Dashboard</Heading>
+        <LinkHeading>Query Entities</LinkHeading>
         <div>
           {links.map(({ to, text }) => (
             <Link to={`${match.url}/${to}`} key={to}>

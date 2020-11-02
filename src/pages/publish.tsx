@@ -13,16 +13,27 @@ import Locations from "./publish/locations";
 import DisaggregateLogistic from "./publish/disaggregate-logistic";
 import DisaggregateBatch from "./publish/disaggregate-batch";
 import DisaggregateTransport from "./publish/disaggregate-transport";
+import { breakpoints } from "../styles";
 
 const Layout = styled.div`
   display: grid;
-  grid-template-areas:
-    "nav json"
-    "subpage json";
   padding: 1.5rem;
   height: 100%;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: minmax(56rem, 1fr) auto;
+  grid-template-rows: minmax(10rem, auto);
+  grid-template-columns: auto;
+  grid-template-areas:
+    "nav"
+    "subpage"
+    "json";
+  overflow-y: auto;
+
+  ${breakpoints.xl} {
+    grid-template-areas:
+      "nav json"
+      "subpage json";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(56rem, 1fr) auto;
+  }
 `;
 
 const Heading = styled.h1`
@@ -31,7 +42,7 @@ const Heading = styled.h1`
   color: var(--primary);
 `;
 
-const LinkHeading = styled.h1`
+const LinkHeading = styled.h2`
   font-weight: 600;
   text-decoration: underline;
   font-size: 1rem;
