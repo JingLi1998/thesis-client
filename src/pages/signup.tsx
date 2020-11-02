@@ -87,12 +87,12 @@ const Signup = () => {
     if (response.ok) {
       const user = response.json();
       setUser(user);
-      history.replace("/admin");
+      history.replace("/admin-query");
     }
   };
 
   if (user) {
-    history.replace("/admin");
+    history.replace("/admin-query");
   }
 
   return (

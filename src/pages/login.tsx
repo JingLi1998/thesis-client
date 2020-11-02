@@ -86,7 +86,7 @@ const Login = () => {
     if (res.ok) {
       const data = await res.json();
       setUser(data);
-      history.replace("/admin");
+      history.replace("/admin-query");
     } else {
       const data = await res.json();
       setError(data.message);
@@ -94,7 +94,7 @@ const Login = () => {
   };
 
   if (user) {
-    history.replace("/admin");
+    history.replace("/admin-query");
   }
 
   return (
