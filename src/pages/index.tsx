@@ -2,9 +2,6 @@
 // import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import GifPlayer from "react-gif-player";
-import still from "../images/still.png";
-import gif from "../images/network.gif";
 
 // const Layout = styled.div`
 //   display: grid;
@@ -151,23 +148,10 @@ const Layout = styled.section`
   padding-bottom: 6rem;
 `;
 
-const GifWrapper = styled.div`
-  width: 54rem;
-  height: 610.97px;
-  cursor: pointer;
-`;
-
-const StyledGifPlayer = styled(GifPlayer)`
-  width: 100%;
-`;
-
 const Index = () => {
   return (
     <Layout>
-      <p>Click the image to start animation</p>
-      <GifWrapper>
-        <StyledGifPlayer gif={gif} still={still} />
-      </GifWrapper>
+      <h1>Hello world</h1>
     </Layout>
   );
 };
