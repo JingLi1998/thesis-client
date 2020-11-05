@@ -148,10 +148,24 @@ const Layout = styled.section`
   padding-bottom: 6rem;
 `;
 
+const Heading = styled.h1`
+  font-weight: 500;
+  color: var(--primary);
+`;
+
 const Index = () => {
   return (
     <Layout>
-      <h1>Hello world</h1>
+      <Heading>Data Aggregation and Management System</Heading>
+      <iframe
+        width="840"
+        height="472.5"
+        src="https://www.youtube.com/embed/ZQuVYcs88AQ"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="youtube"
+      ></iframe>
     </Layout>
   );
 };
