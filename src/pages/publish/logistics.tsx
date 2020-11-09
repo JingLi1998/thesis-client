@@ -41,12 +41,12 @@ const Logistics = () => {
   const onSubmit = async (data: FormInput) => {
     setIsLoading(true);
 
-    const gtin_serial_numbers = data.gtin_batch_numbers
+    const gtin_batch_numbers = data.gtin_batch_numbers
       .replace(/ /g, "")
       .split(",");
 
     const payload = {
-      gtin_serial_numbers,
+      gtin_batch_numbers,
       grai: data.grai,
       transaction_data: {
         who: data.who,
