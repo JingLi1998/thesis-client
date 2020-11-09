@@ -41,7 +41,7 @@ const DisaggregateBatch = () => {
     setIsLoading(true);
 
     const payload = {
-      asset_type: data.gtin_batch_number,
+      gtin_batch_number: data.gtin_batch_number,
       transaction_data: {
         who: data.who,
         where: data.where,
