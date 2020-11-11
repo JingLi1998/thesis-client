@@ -15,7 +15,7 @@ const queryCache = new QueryCache();
 
 const Main = styled.main`
   grid-area: main;
-  /* overflow: auto; */
+  overflow: auto;
 `;
 
 ReactDOM.render(

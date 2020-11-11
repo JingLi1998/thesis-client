@@ -11,6 +11,7 @@ import Map from "./pages/map";
 import Publish from "./pages/publish";
 import Query from "./pages/query";
 import Signup from "./pages/signup";
+import Simulation from "./pages/simulation";
 
 const App = () => {
   const { getUser, isLoading } = useAuthContext();
@@ -38,6 +39,9 @@ const App = () => {
       <ProtectedRoute path="/map">
         <Map />
       </ProtectedRoute>
+      <Route path="/simulation">
+        <Simulation />
+      </Route>
       <Route path="/login">
         <Login />
       </Route>
