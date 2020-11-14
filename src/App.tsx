@@ -5,13 +5,14 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuthContext } from "./contexts/authContext";
 import Index from "./pages";
 import Distributors from "./pages/distributors";
+import Lakshan from "./pages/lakshan";
 import Login from "./pages/login";
 import Manufacturers from "./pages/manufacturers";
 import Map from "./pages/map";
 import Publish from "./pages/publish";
 import Query from "./pages/query";
 import Signup from "./pages/signup";
-import Simulation from "./pages/simulation";
+import Jing from "./pages/jing";
 
 const App = () => {
   const { getUser, isLoading } = useAuthContext();
@@ -39,8 +40,11 @@ const App = () => {
       <ProtectedRoute path="/map">
         <Map />
       </ProtectedRoute>
-      <Route path="/simulation">
-        <Simulation />
+      <Route path="/lakshan">
+        <Lakshan />
+      </Route>
+      <Route path="/jing">
+        <Jing />
       </Route>
       <Route path="/login">
         <Login />

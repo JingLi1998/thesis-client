@@ -77,7 +77,8 @@ const Sidebar = () => {
       </LogoWrapper>
       <LinkWrapper>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/simulation">Simulation</NavLink>
+        <NavLink to="/jing">Jing</NavLink>
+        <NavLink to="/lakshan">Lakshan</NavLink>
         {navLinks}
       </LinkWrapper>
     </Wrapper>

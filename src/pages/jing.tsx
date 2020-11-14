@@ -19,13 +19,14 @@ const Grid = styled.section`
 
 const Heading = styled.h1`
   font-weight: 500;
+  font-size: 1.75rem;
   color: var(--primary);
 `;
 
-const Simulation = () => {
+const Jing = () => {
   return (
     <Layout>
-      <Heading>Simulation Videos</Heading>
+      <Heading>Data Aggregation and Management</Heading>
       <Grid>
         <iframe
           width="420"
@@ -77,4 +78,4 @@ const Simulation = () => {
   );
 };
 
-export default Simulation;
+export default Jing;
