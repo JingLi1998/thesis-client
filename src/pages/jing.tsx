@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
-const Layout = styled.div`
-  height: 100%;
-  padding-bottom: 10rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import IFrame from "../components/IFrame";
+import PortfolioLayout from "../layouts/PortfolioLayout";
 
 const Grid = styled.section`
   display: grid;
@@ -25,10 +18,19 @@ const Heading = styled.h1`
 
 const Jing = () => {
   return (
-    <Layout>
+    <PortfolioLayout>
       <Heading>Data Aggregation and Management</Heading>
       <Grid>
-        <iframe
+        <IFrame
+          width="420"
+          height="236.25"
+          src="https://www.youtube.com/embed/ZQuVYcs88AQ"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="youtube-1"
+        />
+        <IFrame
           width="420"
           height="236.25"
           src="https://www.youtube.com/embed/cf1xDgMzRdc"
@@ -36,8 +38,8 @@ const Jing = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="youtube-2"
-        ></iframe>
-        <iframe
+        />
+        <IFrame
           width="420"
           height="236.25"
           src="https://www.youtube.com/embed/fI4RNHdD2Os"
@@ -45,8 +47,8 @@ const Jing = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="youtube-3"
-        ></iframe>
-        <iframe
+        />
+        <IFrame
           width="420"
           height="236.25"
           src="https://www.youtube.com/embed/NYW_SwFppmk"
@@ -54,8 +56,8 @@ const Jing = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="youtube-4"
-        ></iframe>
-        <iframe
+        />
+        <IFrame
           width="420"
           height="236.25"
           src="https://www.youtube.com/embed/QltAINYyzlA"
@@ -63,8 +65,8 @@ const Jing = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="youtube-5"
-        ></iframe>
-        <iframe
+        />
+        <IFrame
           width="420"
           height="236.25"
           src="https://www.youtube.com/embed/4gFbOoyB8wk"
@@ -72,9 +74,9 @@ const Jing = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="youtube-6"
-        ></iframe>
+        />
       </Grid>
-    </Layout>
+    </PortfolioLayout>
   );
 };
 

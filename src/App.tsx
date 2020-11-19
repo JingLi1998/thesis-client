@@ -13,6 +13,8 @@ import Publish from "./pages/publish";
 import Query from "./pages/query";
 import Signup from "./pages/signup";
 import Jing from "./pages/jing";
+import Eleanor from "./pages/eleanor";
+import Eugene from "./pages/eugene";
 
 const App = () => {
   const { getUser, isLoading } = useAuthContext();
@@ -40,11 +42,17 @@ const App = () => {
       <ProtectedRoute path="/map">
         <Map />
       </ProtectedRoute>
-      <Route path="/lakshan">
+      <Route path="/data-capture-and-transmission">
         <Lakshan />
       </Route>
-      <Route path="/jing">
+      <Route path="/data-aggregation-and-management">
         <Jing />
+      </Route>
+      <Route path="/investment-analysis-model">
+        <Eleanor />
+      </Route>
+      <Route path="/user-experience">
+        <Eugene />
       </Route>
       <Route path="/login">
         <Login />

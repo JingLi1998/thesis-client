@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import IFrame from "../components/IFrame";
 import PortfolioLayout from "../layouts/PortfolioLayout";
 
 const Heading = styled.h1`
@@ -8,20 +9,20 @@ const Heading = styled.h1`
   color: var(--primary);
 `;
 
-const Lakshan = () => {
+const Eleanor = () => {
   return (
     <PortfolioLayout>
-      <Heading>Data Capture and Transmission</Heading>
-      <iframe
+      <Heading>Investment Analysis Model</Heading>
+      <IFrame
         width="1000"
         height="650"
         allow="fullscreen"
-        src="https://cloud.anylogic.com/assets/embed?modelId=910168d7-19c9-4256-957e-b4fa3db5b969"
-        title="lakshan"
+        src="https://cloud.anylogic.com/assets/embed?modelId=34ca479b-a066-4c92-824c-eadd80a57598"
+        title="eleanor"
         frameBorder="0"
-      ></iframe>
+      />
     </PortfolioLayout>
   );
 };
 
-export default Lakshan;
+export default Eleanor;

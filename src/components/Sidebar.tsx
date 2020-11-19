@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 import { AUTH_URL } from "../constants";
 import { useAuthContext } from "../contexts/authContext";
@@ -33,7 +33,22 @@ const LinkWrapper = styled.div`
 const NavLink = styled(Link)`
   display: block;
   padding: 0;
+
+  &.active {
+    text-decoration: underline;
+  }
 `;
+
+const NavLinkWrapper = styled.div`
+  min-height: 8.5rem;
+`;
+
+const LinkHeader = styled.span`
+  text-decoration: underline;
+  font-size: 1rem;
+`;
+
+const PortfolioLinkWrapper = styled.div``;
 
 const Logo = styled.span``;
 
@@ -76,10 +91,20 @@ const Sidebar = () => {
         <Logo>MMAN4020 Thesis</Logo>
       </LogoWrapper>
       <LinkWrapper>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/jing">Jing</NavLink>
-        <NavLink to="/lakshan">Lakshan</NavLink>
-        {navLinks}
+        <NavLinkWrapper>
+          <LinkHeader>Application</LinkHeader>
+          <NavLink to="/" exact>
+            Home
+          </NavLink>
+          {navLinks}
+        </NavLinkWrapper>
+        <PortfolioLinkWrapper>
+          <LinkHeader>Portfolios</LinkHeader>
+          <NavLink to="/data-aggregation-and-management">Jing</NavLink>
+          <NavLink to="/data-capture-and-transmission">Lakshan</NavLink>
+          <NavLink to="/investment-analysis-model">Eleanor</NavLink>
+          <NavLink to="/user-experience">Eugene</NavLink>
+        </PortfolioLinkWrapper>
       </LinkWrapper>
     </Wrapper>
   );
