@@ -55,10 +55,22 @@ const Image = styled.img`
   border-radius: 100%;
 `;
 
-const Background = styled.div`
-  width: 24rem;
-  height: 24rem;
-  background-color: var(--primary);
+const ImageWrapper = styled.div`
+  display: flex;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 6rem;
+`;
+
+const VideoWrapper = styled.div`
+  width: 630px;
+  height: 354.375px;
+  background: var(--border);
 `;
 
 const Index = () => {
@@ -76,11 +88,9 @@ const Index = () => {
           <p>
             By increasing the reliability and resilience of our supply chain,
             ensuring products are tracked and traced from manufacture to
-            distribution.
-          </p>
-          <p>
-            Through use of AI and software, we hope to position Australia at the
-            forefront of the next industrial revolution.
+            distribution. Through use of data analytics and software, we hope to
+            position Australia at the forefront of the next industrial
+            revolution i.e. Industry 4.0.
           </p>
         </section>
         <section>
@@ -91,46 +101,43 @@ const Index = () => {
           </p>
           <List>
             <li>
+              <span>Lakshan</span> - Data Sensing Portfolio
+            </li>
+            <li>
               <span>Anthony</span> - Security Portfolio
-            </li>
-            <li>
-              <span>Eleanor</span> - Market Portfolio
-            </li>
-            <li>
-              <span>Eugene</span> - User Experience Portfolio
             </li>
             <li>
               <span>Jing</span> - Data Aggregation Portfolio
             </li>
             <li>
-              <span>John</span> - Industry Research Portfolio
+              <span>Eugene</span> - User Experience Portfolio
             </li>
             <li>
-              <span>Kai</span> - Customer Relation Portfolio
+              <span>John</span> - Risk Management Portfolio
             </li>
             <li>
-              <span>Lakshan</span> - Data Sensing Portfolio
+              <span>Kai</span> - Manufacturing Forecasts and Recommendations
+              Portfolio
+            </li>
+            <li>
+              <span>Eleanor</span> - Return on Investment Portfolio
             </li>
           </List>
         </section>
         <section>
-          <SubHeading>Our Hero</SubHeading>
-          <Image src="/images/lyons.jpg" />
+          <SubHeading>Our Heroes</SubHeading>
+          <ImageWrapper>
+            <Image src="/images/lyons.jpg" />
+            <Image src="/images/ali.png" />
+          </ImageWrapper>
         </section>
       </Column>
       <Column>
-        <SubSubHeading>Some Content</SubSubHeading>
-        <br />
-        <br />
-        <section>
-          <SubHeading>More Content</SubHeading>
-          <p>Some text</p>
-        </section>
-        <section>
-          <SubHeading>Some Diagram/Graph</SubHeading>
-          <p>Some text</p>
-          <Background />
-        </section>
+        <Flex>
+          <SubHeading>Presentation Video</SubHeading>
+          <span>Coming soon...</span>
+          <VideoWrapper />
+        </Flex>
       </Column>
     </Layout>
   );
