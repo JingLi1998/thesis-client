@@ -135,8 +135,17 @@ const Index = () => {
       <Column>
         <Flex>
           <SubHeading>Presentation Video</SubHeading>
-          <span>Coming soon...</span>
-          <VideoWrapper />
+          <VideoWrapper>
+            <iframe
+              width="630"
+              height="354.375"
+              src="https://www.youtube.com/embed/yAjbvMDdDNY"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="presentation"
+            />
+          </VideoWrapper>
         </Flex>
       </Column>
     </Layout>
